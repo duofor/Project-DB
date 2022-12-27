@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FireHand : Skill {
+    Util util = new Util();
+
+    void Start() {
+        numberOfTargets = 1;
+        skillDamage = 1;
+        skillManaCost = 2;
+    }
+    
+    public override IEnumerator startAttackAnimation() {
+        Vector3 targetPosition = Input.mousePosition;
+        Vector3 skillStartingPosition = GameObject.Find("WeaponPoint").transform.position;
+
+        GameObject skill = Instantiate( getSkillAnimationPrefab(), skillStartingPosition, transform.rotation );
+
+        float timeElapsed = 0f;
+        float lerpDuration = 1f;
+        while ( timeElapsed < lerpDuration ) {
+            skill.transform.position = Vector3.Lerp( skill.transform.position, targetPosition, timeElapsed / lerpDuration );
+            timeElapsed += Time.deltaTime;
+
+            yield return null;
+        }
+        
+        // fireAtTarget( target );
+        Destroy(skill.gameObject);
+    }
+}
