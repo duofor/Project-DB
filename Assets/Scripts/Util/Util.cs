@@ -19,6 +19,7 @@ public class Util {
     public readonly string itemTag = "Item";
     public readonly string playerTag = "Player";
     public readonly string UILayer = "UI";
+    public readonly string skillTag = "Skill";
 
     public float monsterTransitionTimeSeconds = 0.7f;
 

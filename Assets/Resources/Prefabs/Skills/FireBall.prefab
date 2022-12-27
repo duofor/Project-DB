@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5887728129617314586}
   m_Layer: 0
   m_Name: FireBall
-  m_TagString: Untagged
+  m_TagString: Skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,3 +103,5 @@ MonoBehaviour:
   skillDamage: 1
   skillManaCost: 1
   numberOfTargets: 1
+  skillDuration: 2
+  skillSpeed: 2

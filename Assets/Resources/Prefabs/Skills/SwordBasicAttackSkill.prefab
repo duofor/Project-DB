@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7646754773929205003}
   m_Layer: 0
   m_Name: SwordBasicAttackSkill
-  m_TagString: Untagged
+  m_TagString: Skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSkillSelected: 0
-  spriteRenderer: {fileID: 0}
+  skillAnimation_Prefab: {fileID: 0}
   skillLevel: 1
   skillDamage: 1
   skillManaCost: 1
