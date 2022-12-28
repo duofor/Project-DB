@@ -1210,7 +1210,7 @@ GameObject:
   - component: {fileID: 137036701}
   - component: {fileID: 137036700}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: DamageNumbersText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4558,6 +4558,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 768568511, guid: 5d72b56a8f42f5e47b3de9c15023bead, type: 3}
+      propertyPath: damageText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2393266838070798613, guid: 5d72b56a8f42f5e47b3de9c15023bead, type: 3}
       propertyPath: m_Name
       value: SmallEnemy
@@ -16811,7 +16815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932cf61c353978c40a06a341c9f1207c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageText: {fileID: 137036700}
 --- !u!4 &914447001
 Transform:
   m_ObjectHideFlags: 0
