@@ -16,6 +16,9 @@ public class Draggable : MonoBehaviour {
 
 
     void OnMouseDown() {
+        if ( currentItemSlot == null ) //we dont wanna pick it from from the ground with the mouse
+            return;
+
         Debug.Log("hey");
         initialPosition = transform.position;
 
@@ -25,6 +28,9 @@ public class Draggable : MonoBehaviour {
     }
 
     void OnMouseUp() {
+        if ( currentItemSlot == null ) //we dont wanna pick it from from the ground with the mouse
+            return;
+            
         /*  raycast to place where dropped.
         if inventory assign it
         if not inventory, put it back where it came from */
