@@ -46,7 +46,6 @@ public class PlayerSkillSlot : MonoBehaviour {
 
     public void setSkill(Skill skillToSet) {
         skill = skillToSet;
-        skill.isSkillSelected = false;
     }
     public Skill getSkill() {
         return skill;

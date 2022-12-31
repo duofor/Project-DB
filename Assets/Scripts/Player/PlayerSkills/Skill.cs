@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public abstract class Skill : MonoBehaviour {
-    Util util = new Util();
 
-    public bool isSkillSelected = false;
+    Util util = new Util();
 
     private SpriteRenderer spriteRenderer;
     Vector3 startMousePos;
@@ -18,13 +16,18 @@ public abstract class Skill : MonoBehaviour {
     public int skillManaCost = 1;
     public int numberOfTargets = 1;
 
-    void Awake() {
-        isSkillSelected = false;
-    }
-
     public abstract IEnumerator startAttackAnimation();
 
     public GameObject getSkillAnimationPrefab() {
         return skillAnimation_Prefab;
     }
+
+    public virtual void registerSkill() {
+        
+    }
+
+    public virtual void unregisterSkill() {
+
+    }
+
 }

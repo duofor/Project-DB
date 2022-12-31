@@ -17,7 +17,8 @@ public class FireBall : Skill {
     public override IEnumerator startAttackAnimation() {
         Vector3 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 skillStartingPosition = GameObject.Find("WeaponPoint").transform.position;
-        Quaternion weaponRotation = PlayerWeapon.instance.getPlayerWeapon().transform.rotation;
+        // Quaternion weaponRotation = PlayerWeapon.instance.getPlayerWeapon().transform.rotation;
+        Quaternion weaponRotation = transform.rotation;
 
         GameObject skill = Instantiate( getSkillAnimationPrefab(), skillStartingPosition, weaponRotation );
 
