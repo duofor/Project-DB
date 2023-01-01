@@ -65,7 +65,7 @@ public class Item
                 attribute = item.data.buffs[i].attribute
             };
         }
-        //registering skills to the obj
+        // registering skills to the obj
         if ( item.data.skills.Count > 0 ) {
             skills = item.data.skills;
         }

@@ -103,16 +103,17 @@ public class Player : MonoBehaviour
                 }
 
                 //set the weapon
-                for (int i = 0; i < _slot.AllowedItems.Length; i++) {
-                    ItemType itemType = _slot.AllowedItems[i];
-                    if ( (itemType == ItemType.Weapon) && weaponPoint && _slot.item.prefab != null) {
-                        GameObject playerWeapon = Instantiate( _slot.item.prefab );
-                        playerWeapon.transform.position = weaponPoint.transform.position;
-                        playerWeapon.transform.SetParent(transform);
-                        myCurrentWeapon = playerWeapon; //storing the wep ref so we can destroy once we unnequip it
-                        break;
-                    }
-                }
+                // for (int i = 0; i < _slot.AllowedItems.Length; i++) {
+                //     ItemType itemType = _slot.AllowedItems[i];
+                //     if ( (itemType == ItemType.Weapon) && weaponPoint && _slot.item.prefab != null) {
+                //         to be done later perhaps #TODO
+                //         GameObject playerWeapon = Instantiate( _slot.item.prefab );
+                //         playerWeapon.transform.position = weaponPoint.transform.position;
+                //         playerWeapon.transform.SetParent(transform);
+                //         myCurrentWeapon = playerWeapon; //storing the wep ref so we can destroy once we unnequip it
+                //         break;
+                //     }
+                // }
 
                 break;
             case InterfaceType.Chest:
@@ -135,7 +136,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             inventory.Save();
             equipment.Save();

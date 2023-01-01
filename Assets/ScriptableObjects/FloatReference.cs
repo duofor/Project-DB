@@ -14,4 +14,12 @@ public class FloatReference : ScriptableObject {
             return useConstant ? constantValue : variable.value;
         }
     }
+
+    public void receiveDamage(float amount) {
+        if ( useConstant ) {
+            constantValue -= amount;
+        } else {
+            variable.value -= amount;
+        }
+    }
 }

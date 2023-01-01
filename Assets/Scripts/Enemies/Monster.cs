@@ -94,7 +94,6 @@ public class Monster : MonoBehaviour {
 
         Projectile go = Instantiate( projectile, shootingPoint.transform.position, rota );
         Destroy(go.gameObject, 1);
-
     }
 
 }

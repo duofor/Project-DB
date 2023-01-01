@@ -7,10 +7,10 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
     Util util = new Util();
 
-
+    public FloatReference playerHp;
     private Vector3 targetPos;
 
-    public int damage;
+    public float damage;
     float projectileSpeed = 1.5f;
     
 
@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour {
         animator.Play("Attack");
 
         //dmg struct
-        damage = 0;
+        damage = 1;
     
         // to be moved in childs
         targetPos = GameObject.Find("Player").transform.position; // trash code to be changed later
@@ -44,5 +44,12 @@ public class Projectile : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col) {
         Destroy(gameObject);
+
+        Player hit = col.transform.GetComponent<Player>();
+        if ( hit ) {
+            float tempDamage = (damage > 0) ? damage : 1;
+            playerHp.receiveDamage(tempDamage);
+
+        }
     }
 }

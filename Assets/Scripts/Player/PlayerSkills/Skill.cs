@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public abstract class Skill : MonoBehaviour {
 
     Util util = new Util();
@@ -8,7 +9,7 @@ public abstract class Skill : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     Vector3 startMousePos;
 
-    [SerializeField] private GameObject skillAnimation_Prefab;
+    public GameObject skillAnimation_Prefab;
 
     //test data
     public int skillLevel = 1;
