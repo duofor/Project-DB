@@ -40,21 +40,19 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.2.1f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Player\Items\ScytheBlue\ScytheSlash.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerWeapon.cs" />
      <Compile Include="Assets\InventorySystem\DynamicInterface.cs" />
-     <Compile Include="Assets\Scripts\PlayerGUI\WeaponSlot.cs" />
      <Compile Include="Assets\Scripts\Player\Items\MagmaStaff\NapalmBlast.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
-     <Compile Include="Assets\Scripts\PlayerGUI\InventorySlot.cs" />
      <Compile Include="Assets\Scripts\Projectile\WhiteArrow.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
      <Compile Include="Assets\InventorySystem\Scriptable Objects\Items\Scripts\ItemDatabaseObject.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+     <Compile Include="Assets\Scripts\Player\Items\ScytheBlue\ScytheSpinThrow.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
      <Compile Include="Assets\Scripts\Projectile\Projectile.cs" />
@@ -78,10 +76,11 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Scripts\Weapons\FireStaff.cs" />
      <Compile Include="Assets\Scripts\Weapons\Weapon.cs" />
-     <Compile Include="Assets\Scripts\PlayerGUI\ItemSlot.cs" />
      <Compile Include="Assets\Scripts\Enemies\Monster.cs" />
      <Compile Include="Assets\InventorySystem\Billboard.cs" />
      <Compile Include="Assets\InventorySystem\Player.cs" />
+     <Compile Include="Assets\MouseFollower.cs" />
+     <Compile Include="Assets\Scripts\Weapons\BlueScythe.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSkills\SwordSwingAttackSkill.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -100,7 +99,6 @@
      <Compile Include="Assets\Scripts\PlayerGUI\ImageFillSetter.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSkills\SwordBasicAttackSkill.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
-     <Compile Include="Assets\Scripts\Player\Items\Draggable.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
