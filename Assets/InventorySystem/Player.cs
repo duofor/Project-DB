@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
                 for (int i = 0; i < _slot.AllowedItems.Length; i++) {
                     ItemType itemType = _slot.AllowedItems[i];
                     if ( itemType == ItemType.Weapon && skillInterface ) {
-                        skillInterface.addSkills(_slot.item.skills);
+                        // skillInterface.addSkills(_slot.item.skills);
                         break;
                     }
                 }

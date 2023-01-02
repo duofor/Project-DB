@@ -30,8 +30,7 @@ public class PlayerSkillInterface : MonoBehaviour {
                 continue;
             }
 
-            Sprite skillSprite = skill.GetComponent<SpriteRenderer>().sprite;
-
+            Sprite skillSprite = skill.skillIcon;
 
             playerSkillSlots[index].setSkillSprite(skillSprite);
             // playerSkillSlots[index].setOrderInLayer(3);

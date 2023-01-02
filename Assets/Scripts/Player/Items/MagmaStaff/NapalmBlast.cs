@@ -15,7 +15,7 @@ public class NapalmBlast : Skill {
         Vector3 targetPosition = Input.mousePosition;
         Vector3 skillStartingPosition = GameObject.Find("WeaponPoint").transform.position;
 
-        GameObject skill = Instantiate( getSkillAnimationPrefab(), skillStartingPosition, transform.rotation );
+        Skill skill = Instantiate( this, skillStartingPosition, transform.rotation );
 
         float timeElapsed = 0f;
         float lerpDuration = 1.5f;

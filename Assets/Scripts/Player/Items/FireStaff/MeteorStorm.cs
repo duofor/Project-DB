@@ -22,7 +22,7 @@ public class MeteorStorm : Skill {
         );
 
         Vector3 skillStartingPosition = targetPosition + new Vector3(-0.50f, 1f, 0);
-        GameObject skill = Instantiate( getSkillAnimationPrefab(), skillStartingPosition, transform.rotation );
+        Skill skill = Instantiate( this, skillStartingPosition, transform.rotation );
 
         float timeElapsed = 0f;
         while ( timeElapsed < skillDuration ) {

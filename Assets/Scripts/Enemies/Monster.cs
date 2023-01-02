@@ -6,7 +6,7 @@ using TMPro;
 public class Monster : MonoBehaviour {
     Util util = new Util();
 
-    public int health = 0;
+    public float health = 0;
 
     [SerializeField] private Projectile projectile;
     [SerializeField] private GameObject shootingPoint;
@@ -96,4 +96,9 @@ public class Monster : MonoBehaviour {
         Destroy(go.gameObject, 1);
     }
 
+    public void takeDamage(float amount) {
+        StartCoroutine(showDamageNumbers());
+        StartCoroutine(flash());
+        health -= amount;
+    }
 }

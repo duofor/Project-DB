@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerHP
   m_EditorClassIdentifier: 
   useConstant: 1
-  constantValue: 100
+  constantValue: 60
   variable: {fileID: 0}

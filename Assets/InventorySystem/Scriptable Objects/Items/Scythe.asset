@@ -21,6 +21,6 @@ MonoBehaviour:
     Id: 15
     buffs: []
     skills:
-    - {fileID: -9137895271746062221, guid: 537e99c819e39f04c861d899146268c5, type: 3}
-    - {fileID: -616094228611190283, guid: 631aeda2fbaff8c4cb479b02f03f2200, type: 3}
+    - {fileID: -8550331529880159420, guid: e5bb5233fac87e54a91f1a04b9434687, type: 3}
+    - {fileID: 8791178616970239505, guid: bbc3feee45b24d1459d3c6fa71334980, type: 3}
     prefab: {fileID: 6716804285552132963, guid: 4f09f69a65efcea4396dd86f752a09d0, type: 3}

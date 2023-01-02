@@ -9,7 +9,7 @@ public abstract class Skill : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     Vector3 startMousePos;
 
-    public GameObject skillAnimation_Prefab;
+    public Sprite skillIcon;
 
     //test data
     public int skillLevel = 1;
@@ -19,16 +19,15 @@ public abstract class Skill : MonoBehaviour {
 
     public abstract IEnumerator startAttackAnimation();
 
-    public GameObject getSkillAnimationPrefab() {
-        return skillAnimation_Prefab;
+    void OnTriggerEnter2D(Collider2D other) {
+        Player p = other.GetComponent<Player>();
+        if ( p || other.transform.tag == util.skillTag) return;
+
+        Monster m = other.GetComponent<Monster>();
+        if (m) {
+            m.takeDamage(1);
+        }
+
+        Destroy(gameObject);
     }
-
-    public virtual void registerSkill() {
-        
-    }
-
-    public virtual void unregisterSkill() {
-
-    }
-
-}
+}   

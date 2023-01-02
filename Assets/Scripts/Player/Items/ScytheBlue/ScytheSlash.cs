@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScytheSlash : Skill {
     Util util = new Util();
 
-    public float skillDuration = 15f;
+    public float skillDuration = 2f;
     public float skillSpeed = 2;
 
     const string SCYTHE_SLASH = "Scythe_Slash";
@@ -26,37 +26,36 @@ public class ScytheSlash : Skill {
         GameObject helper = new GameObject();
         helper.transform.position = skillStartingPosition;
         helper.transform.rotation = weaponPoint.transform.rotation; 
-        helper.transform.localScale = new Vector3(-1f,1f,1f); // flip cuz animation is reverse
+        // helper.transform.localScale = new Vector3(-1f,1f,1f); // flip cuz animation is reverse
         helper.transform.SetParent(playerTrans, true); // we want it to stick.
 
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = mousePos - skillStartingPosition; 
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
+        Quaternion rota = Quaternion.AngleAxis(angle, Vector3.forward); 
 
-        GameObject skill = Instantiate( 
-            getSkillAnimationPrefab(),
+        Skill skill = Instantiate( 
+            this,
             new Vector3(skillStartingPosition.x, skillStartingPosition.y, 0), 
-            transform.rotation,
+            rota,
             helper.transform
         );
 
-        skill.transform.localScale = new Vector3(
-            skill.transform.localScale.x * 1.5f,
-            skill.transform.localScale.y * 1.5f,
-            1
-        ); // double size 
-        
-        Animator animator = skill.GetComponent<Animator>();
-        animator.speed = 3.5f;
-        animator.Play(SCYTHE_SLASH);
-
-        //Wait for them to enter the Attacking state
-        while (!animator.GetCurrentAnimatorStateInfo(0).IsName(SCYTHE_SLASH)) {
-            yield return null;
-        }
-
-        //Now wait for them to finish
-        while (animator.GetCurrentAnimatorStateInfo(0).IsName(SCYTHE_SLASH)) {
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 ) {
-                break;
+        float timeElapsed = 0f;
+        Rigidbody2D rb = skill.GetComponent<Rigidbody2D>();
+        while( timeElapsed < skillDuration ) {
+            if ( !skill ) {
+                Destroy(helper.gameObject);
+                yield break;
             }
+            skill.transform.position = Vector3.MoveTowards(
+                skill.transform.position,
+                mousePos,
+                Time.fixedDeltaTime * skillSpeed
+            );
+
+            timeElapsed += Time.fixedDeltaTime;
+
             yield return null;
         }
 

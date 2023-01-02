@@ -9,12 +9,4 @@ public class SmallEnemy : Monster  {
     void Start() {
         health = 5;
     }
-
-    void OnTriggerEnter2D(Collider2D col) {
-        if ( col.transform.tag == util.skillTag ) {
-            StartCoroutine(showDamageNumbers());
-            StartCoroutine(flash());
-            health -= 1;
-        }
-    }
 }

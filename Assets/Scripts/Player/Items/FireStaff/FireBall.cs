@@ -20,7 +20,7 @@ public class FireBall : Skill {
         // Quaternion weaponRotation = PlayerWeapon.instance.getPlayerWeapon().transform.rotation;
         Quaternion weaponRotation = transform.rotation;
 
-        GameObject skill = Instantiate( getSkillAnimationPrefab(), skillStartingPosition, weaponRotation );
+        Skill skill = Instantiate( this, skillStartingPosition, weaponRotation );
 
         float timeElapsed = 0f;
         while ( timeElapsed < skillDuration ) {

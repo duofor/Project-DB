@@ -80,6 +80,7 @@
      <Compile Include="Assets\InventorySystem\Billboard.cs" />
      <Compile Include="Assets\InventorySystem\Player.cs" />
      <Compile Include="Assets\MouseFollower.cs" />
+     <Compile Include="Assets\LevelLoader.cs" />
      <Compile Include="Assets\Scripts\Weapons\BlueScythe.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSkills\SwordSwingAttackSkill.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />

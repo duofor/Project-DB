@@ -30,9 +30,8 @@ public class ScytheSpinThrow : Skill {
         helper.transform.localScale = new Vector3(-1f,1f,1f); // flip cuz animation is reverse
         helper.transform.SetParent(playerTrans, true); // we want it to stick.
 
-
-        GameObject skill = Instantiate( 
-            getSkillAnimationPrefab(),
+        Skill skill = Instantiate( 
+            this,
             new Vector3(skillStartingPosition.x, skillStartingPosition.y, 0), 
             transform.rotation,
             helper.transform

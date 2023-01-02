@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
     
-    [SerializeField] private Camera mainCamera;
+    private Camera mainCamera;
     Rigidbody2D rb;    
     BoxCollider2D boxCollider;
 
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 
     void Awake() {
         state = State.Normal;
+        mainCamera = Camera.main;
     }
 
 
@@ -46,7 +47,6 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
-        mainCamera.orthographicSize = 2f;
     }
 
     private void Update() {
