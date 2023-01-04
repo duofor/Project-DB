@@ -6,37 +6,53 @@ using TMPro;
 public class Monster : MonoBehaviour {
     Util util = new Util();
 
+    public bool readyForDestroy = false; 
+
     public float health = 0;
 
-    [SerializeField] private Projectile projectile;
+    public Projectile projectile;
+
     [SerializeField] private GameObject shootingPoint;
     private SpriteRenderer spriteRenderer;
     Color initialColor;
 
     private TextMeshProUGUI damageText;
     List<TextMeshProUGUI> damageTexts = new List<TextMeshProUGUI>();
+    
+    private Material material;
 
     void Awake() {
         damageText = GameObject.Find("DamageNumbersText").transform.GetComponent<TextMeshProUGUI>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         initialColor = spriteRenderer.color;
+    
+        //defaulting this
+        material = spriteRenderer.material;
+        material.SetFloat("_Fade", 1f);
+        material.SetFloat("Scale", 200f);
+    }
 
+    void Start() {
         //start invoking projectiles.
         InvokeRepeating("fireAt", 0f, 0.5f);
     }
     
     void Update() {
+        if (readyForDestroy) return;
+
         if ( health <= 0 ) {
             foreach( TextMeshProUGUI text in damageTexts ) {
                 if (text != null ) {
                     Destroy(text);
                 }
             }
-            Destroy(gameObject);
+            StartCoroutine(dissolve()); // this also destroyes the obj
         }
     }
 
     public virtual IEnumerator showDamageNumbers() {
+        if (readyForDestroy) yield break;
+
         Transform objTransform = transform;
         TextMeshProUGUI damageTextObj = Instantiate(damageText, objTransform.gameObject.transform.position, transform.rotation);
         damageTexts.Add(damageTextObj); // so we can destroy them once this gets destroyed
@@ -70,6 +86,8 @@ public class Monster : MonoBehaviour {
     }
 
     public virtual IEnumerator flash() {
+        if (readyForDestroy) yield break;
+
         spriteRenderer.color = Color.red;
 
         float timeElapsed = 0f;
@@ -84,21 +102,60 @@ public class Monster : MonoBehaviour {
     }
 
     public virtual void fireAt() {
-        if ( projectile == null ) return;
+        if ( projectile == null || readyForDestroy) return;
         
-        Vector3 targetPos = GameObject.Find( "Player" ).transform.position; // trash code to be changed later
+        GameObject p = GameObject.Find( "Player" );
+        Vector3 targetPos = p.transform.position; // trash code to be changed later
         Vector3 direction = targetPos - shootingPoint.transform.position;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
         Quaternion rota = Quaternion.AngleAxis(angle, Vector3.forward); 
 
-        Projectile go = Instantiate( projectile, shootingPoint.transform.position, rota );
-        Destroy(go.gameObject, 1);
+        if ( p != null ) {
+            Projectile go = Instantiate( projectile, shootingPoint.transform.position, rota );
+            Destroy(go.gameObject, 1);
+        }
+    }
+
+    public IEnumerator doSomeSmallShake() {
+        if (readyForDestroy) yield break;
+
+        float timePassed = 0;
+        bool flip = false;
+        while (timePassed < 0.2f) {
+            // Shake
+            if (flip) {
+                flip = !flip; 
+                transform.position += new Vector3(0, transform.position.y / 80, 0);
+                transform.position += new Vector3(transform.position.x / 80, 0, 0);
+            } else {
+                flip = !flip; 
+                transform.position -= new Vector3(0, transform.position.y / 80, 0);
+                transform.position -= new Vector3(transform.position.x / 80, 0, 0);
+            }
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
     }
 
     public void takeDamage(float amount) {
         StartCoroutine(showDamageNumbers());
+        StartCoroutine(doSomeSmallShake());
         StartCoroutine(flash());
         health -= amount;
+    }
+
+    IEnumerator dissolve() {
+        float fade = 1f;
+        readyForDestroy = true;
+
+        while ( fade >= 0f ) {
+            material.SetFloat("_Fade", fade);
+            fade -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 }

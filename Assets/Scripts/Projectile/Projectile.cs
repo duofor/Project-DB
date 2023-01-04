@@ -23,7 +23,9 @@ public class Projectile : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
-        animator.Play("Attack");
+        if ( animator ) {
+            animator.Play("Attack");
+        }
 
         //dmg struct
         damage = 1;

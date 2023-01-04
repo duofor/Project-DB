@@ -136,7 +136,7 @@ Transform:
   m_Children:
   - {fileID: 7410692117434653708}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7410692118002612885
 SpriteRenderer:
@@ -304,7 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0ac765566dd194abaced84b0b17868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
   movementSpeed: 2
   movementFilter:
     useTriggers: 0

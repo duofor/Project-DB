@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8306139902472940920}
   m_Layer: 8
   m_Name: Nest_Spawner
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 5771122964340141887, guid: 232523a2cb0dd9a409ced30051fc2780, type: 3}
-  currentState: 
+  spawnInterval: 5
+  numberOfAllowedSpawns: 2
 --- !u!61 &8306139902472940920
 BoxCollider2D:
   m_ObjectHideFlags: 0

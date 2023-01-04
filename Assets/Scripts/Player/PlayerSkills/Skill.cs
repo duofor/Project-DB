@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class Skill : MonoBehaviour {
 
-    Util util = new Util();
-
     private SpriteRenderer spriteRenderer;
     Vector3 startMousePos;
 
@@ -14,14 +12,15 @@ public abstract class Skill : MonoBehaviour {
     //test data
     public int skillLevel = 1;
     public int skillDamage = 1;
-    public int skillManaCost = 1;
     public int numberOfTargets = 1;
 
     public abstract IEnumerator startAttackAnimation();
 
     void OnTriggerEnter2D(Collider2D other) {
-        Player p = other.GetComponent<Player>();
-        if ( p || other.transform.tag == util.skillTag) return;
+        Player p = other.GetComponent<Player>(); //ignore player
+        Projectile pp = other.GetComponent<Projectile>(); //ignore enemy proj
+        Skill ppp = other.GetComponent<Skill>(); //ignore self
+        if ( p || pp || ppp) return;
 
         Monster m = other.GetComponent<Monster>();
         if (m) {

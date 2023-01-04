@@ -11,7 +11,6 @@ public class MeteorStorm : Skill {
     void Start() {
         numberOfTargets = 2;
         skillDamage = 2;
-        skillManaCost = 1;
     }
     
     public override IEnumerator startAttackAnimation() {

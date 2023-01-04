@@ -6,31 +6,34 @@ public class NestSpawner : MonoBehaviour {
 
     public Monster monsterPrefab;
 
-    private Animator anim;
-    [SerializeField] private string currentState;
+    public float spawnInterval = 5f;
+    public int numberOfAllowedSpawns = 2;
+    int spawned = 0;
 
+    private Animator anim;
     Vector3 offset;
 
     const string NEST_SPAWN = "Nest_Spawn";
     const string NEST_IDLE = "Nothing";
 
     void Start() {
-        InvokeRepeating("SpawnMonster", 2f, 5f);
+        InvokeRepeating("SpawnMonster", 2f, spawnInterval);
         anim = GetComponent<Animator>();
         offset = GetComponent<SpriteRenderer>().sprite.bounds.size;
     }
 
     void ChangeAnimationState(string newState) {
-        // if ( currentState == newState ) return;
-
-        // Debug.Log("Changing animation to " + newState );
         anim.Play(newState);
-        // currentState = newState;
     }
     
     public void SpawnMonster() {
-        Debug.Log("spawning");
-        StartCoroutine(spawn());
+        if ( spawned <= numberOfAllowedSpawns) {
+            Debug.Log("spawning");
+            StartCoroutine(spawn());
+            spawned += 1;
+        } else {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator spawn() {

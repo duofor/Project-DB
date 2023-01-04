@@ -46,8 +46,6 @@ public class Item
     public string Name;
     public int Id = -1;
     public ItemBuff[] buffs;
-    // public List<Skill> skills = new List<Skill>();
-    // public GameObject prefab;
 
     public Item()
     {
@@ -65,14 +63,6 @@ public class Item
                 attribute = item.data.buffs[i].attribute
             };
         }
-        // registering skills to the obj
-        // if ( item.data.skills.Count > 0 ) {
-        //     skills = item.data.skills;
-        // }
-
-        // if ( item.data.prefab ) {
-        //     prefab = item.data.prefab;
-        // }
     }
 }
 

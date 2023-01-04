@@ -10,11 +10,9 @@ public class ScytheSpinThrow : Skill {
 
     const string SCYTHE_THROWSPIN = "Scythe_ThrowSpin";
 
-
     void Start() {
         numberOfTargets = 1;
         skillDamage = 1;
-        skillManaCost = 2;
     }
     
     public override IEnumerator startAttackAnimation() {

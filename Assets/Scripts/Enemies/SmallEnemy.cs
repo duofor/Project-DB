@@ -8,5 +8,7 @@ public class SmallEnemy : Monster  {
 
     void Start() {
         health = 5;
+        //start invoking projectiles.
+        InvokeRepeating("fireAt", 0f, 1f);
     }
 }

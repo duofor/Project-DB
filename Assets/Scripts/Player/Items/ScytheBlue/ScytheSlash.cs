@@ -5,15 +5,14 @@ using UnityEngine;
 public class ScytheSlash : Skill {
     Util util = new Util();
 
-    public float skillDuration = 2f;
-    public float skillSpeed = 2;
+    float skillDuration = 2f;
+    float skillSpeed = 2;
 
     const string SCYTHE_SLASH = "Scythe_Slash";
 
     void Start() {
         numberOfTargets = 1;
         skillDamage = 1;
-        skillManaCost = 2;
     }
     
     public override IEnumerator startAttackAnimation() {
@@ -26,7 +25,6 @@ public class ScytheSlash : Skill {
         GameObject helper = new GameObject();
         helper.transform.position = skillStartingPosition;
         helper.transform.rotation = weaponPoint.transform.rotation; 
-        // helper.transform.localScale = new Vector3(-1f,1f,1f); // flip cuz animation is reverse
         helper.transform.SetParent(playerTrans, true); // we want it to stick.
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -44,10 +42,11 @@ public class ScytheSlash : Skill {
         float timeElapsed = 0f;
         Rigidbody2D rb = skill.GetComponent<Rigidbody2D>();
         while( timeElapsed < skillDuration ) {
-            if ( !skill ) {
-                Destroy(helper.gameObject);
+            if ( !skill ) { //this can happen when ontrigger2d destroyes the obj
+                Destroy(helper.gameObject); 
                 yield break;
             }
+            // need a better way to shoot, where projectile speed stays consistent
             skill.transform.position = Vector3.MoveTowards(
                 skill.transform.position,
                 mousePos,

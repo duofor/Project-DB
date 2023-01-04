@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
             equipment.GetSlots[i].OnBeforeUpdate += OnBeforeSlotUpdate;
             equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
         }
+
     }
     public void OnBeforeSlotUpdate(InventorySlot _slot)
     {
@@ -96,8 +97,13 @@ public class Player : MonoBehaviour
                 //add the skills
                 for (int i = 0; i < _slot.AllowedItems.Length; i++) {
                     ItemType itemType = _slot.AllowedItems[i];
-                    if ( itemType == ItemType.Weapon && skillInterface ) {
-                        // skillInterface.addSkills(_slot.item.skills);
+                    if ( itemType == ItemType.Weapon && skillInterface ) { // we can change later to more skills if we want to
+                        string weaponName = _slot.item.Name;
+                        Skill skill = Resources.Load<Skill>($"Prefabs/Weapons/{weaponName}/Skills/Skill_1");
+                        List<Skill> sk = new List<Skill>();
+                        sk.Add(skill);
+                        skillInterface.addSkills(sk);
+
                         break;
                     }
                 }
@@ -156,7 +162,21 @@ public class Player : MonoBehaviour
         inventory.Clear();
         equipment.Clear();
     }
+
+    public void savePlayerData() {
+        inventory.Save();
+        equipment.Save();
+    }
+    public void loadPlayerData() {
+        inventory.Load();
+        equipment.Load();
+    }
+
 }
+
+
+
+
 
 [System.Serializable]
 public class Attribute

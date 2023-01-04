@@ -8,7 +8,6 @@ public class FireHand : Skill {
     void Start() {
         numberOfTargets = 1;
         skillDamage = 1;
-        skillManaCost = 2;
     }
     
     public override IEnumerator startAttackAnimation() {

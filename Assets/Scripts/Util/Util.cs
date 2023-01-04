@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Util {
 
-    public readonly string enemyUITag = "EnemyUI";
+    public readonly string monsterTag = "Monster";
     public readonly string enemyFloorPosition = "EnemyFloorPosition";
     public readonly string spawnPoint = "SpawnPoint";
     public readonly Vector3 defaultGUIActorsScale = new Vector3(3, 3, 0);
