@@ -30,7 +30,7 @@ TagManager:
   - Projectile
   - Walls
   - LevelLoader
-  - 
+  - Post Processing
   - 
   - 
   - 
@@ -53,4 +53,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 376814437
     locked: 0

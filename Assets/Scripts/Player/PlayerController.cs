@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
     
+    public ParticleSystem dust;
+    bool dustCreated = false;
+
+
     private Camera mainCamera;
     Rigidbody2D rb;    
     BoxCollider2D boxCollider;
@@ -35,6 +39,7 @@ public class PlayerController : MonoBehaviour {
 
     void Awake() {
         state = State.Normal;
+        dustCreated = false;
         mainCamera = Camera.main;
     }
 
@@ -53,6 +58,7 @@ public class PlayerController : MonoBehaviour {
         switch (state) {
             case State.Normal:
                 if ( Input.GetKeyDown(KeyCode.Space) ) {
+                    createDust();
                     rollDirection = lastMoveDirection;
                     state = State.Rolling;
                     rollSpeed = 6f;
@@ -86,6 +92,7 @@ public class PlayerController : MonoBehaviour {
                 break;
 
             case State.Normal:
+                dustCreated = false;
                 if ( movementInput != Vector2.zero ) {
                     lastMoveDirection = movementInput;
                     bool moved = tryMove(movementInput);
@@ -124,5 +131,10 @@ public class PlayerController : MonoBehaviour {
         );
 
         return (count == 0) ? true : false; 
+    }
+
+    void createDust() {
+        dustCreated = true;
+        dust.Play();
     }
 }

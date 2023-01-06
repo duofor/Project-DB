@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class Ball : Projectile {
 
+    public ParticleSystem dust;
+
     void Awake() {
         damage = 2;
-    }
-
-    void FixedUpdate(){
-
+        if (dust) {
+            dust.Play();
+        }
     }
 }

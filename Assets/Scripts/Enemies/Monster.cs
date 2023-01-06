@@ -77,7 +77,10 @@ public class Monster : MonoBehaviour {
 
             timeElapsed += Time.fixedDeltaTime; 
             if ( damageTextObj.transform.position == destPosition ) {
-                Destroy(damageTextObj.gameObject);
+                if ( damageTextObj.gameObject != null ) {
+                    Destroy(damageTextObj.gameObject);
+                }
+                
                 break;
             }
             yield return null;
@@ -91,7 +94,7 @@ public class Monster : MonoBehaviour {
         spriteRenderer.color = Color.red;
 
         float timeElapsed = 0f;
-        float flashDuration = 0.3f;
+        float flashDuration = 0.4f;
         while ( timeElapsed < flashDuration ) {
             timeElapsed += Time.fixedDeltaTime;
             yield return null;

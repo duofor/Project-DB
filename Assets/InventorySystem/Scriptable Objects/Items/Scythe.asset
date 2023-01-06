@@ -15,12 +15,32 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 4a44acdbbfdb31148b75f7b30b72e2e2, type: 3}
   stackable: 0
   type: 2
-  description: 
+  description: 'Ii fute una la Luffy5g, scazandu-i un g
+
+    Pula pizda
+
+    Pula
+    pizda
+
+
+    Poooola'
   data:
-    Name: 
+    Name: Arma mamei tale
     Id: 15
-    buffs: []
-    skills:
-    - {fileID: -8550331529880159420, guid: e5bb5233fac87e54a91f1a04b9434687, type: 3}
-    - {fileID: 8791178616970239505, guid: bbc3feee45b24d1459d3c6fa71334980, type: 3}
-    prefab: {fileID: 6716804285552132963, guid: 4f09f69a65efcea4396dd86f752a09d0, type: 3}
+    buffs:
+    - attribute: 3
+      value: 1
+      min: 1
+      max: 5
+    - attribute: 0
+      value: 2
+      min: 1
+      max: 5
+    - attribute: 2
+      value: 1
+      min: 1
+      max: 5
+    - attribute: 1
+      value: 3
+      min: 1
+      max: 5

@@ -59,12 +59,24 @@ public abstract class UserInterface : MonoBehaviour
 
     public void OnEnter(GameObject obj)
     {
-        Debug.Log("entered" + transform.gameObject.name);
         MouseData.slotHoveredOver = obj;
+        Debug.Log("entered" + obj.transform.name);
+
+        ItemToolTip toolTip = ItemToolTip.instance;
+        if ( toolTip && slotsOnInterface[obj].ItemObject != null ) {
+            toolTip.setItemObject(slotsOnInterface[obj].ItemObject);
+            toolTip.setPosition(obj.transform.position);
+            toolTip.enable();
+        }
+
     }
-    public void OnExit(GameObject obj)
-    {
+    public void OnExit(GameObject obj) {
         MouseData.slotHoveredOver = null;
+
+        ItemToolTip toolTip = ItemToolTip.instance;
+        if ( toolTip ) {
+            toolTip.disable();
+        }
     }
     public void OnEnterInterface(GameObject obj)
     {

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public GameObject weaponPoint;
     private GameObject myCurrentWeapon;
 
+    bool canPickup = false;
+    GroundItem currentTouchedItem;
 
     void Awake() {
         stats = GetComponent<Stats>();
@@ -27,8 +29,23 @@ public class Player : MonoBehaviour
             equipment.GetSlots[i].OnBeforeUpdate += OnBeforeSlotUpdate;
             equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
         }
+        canPickup = false;
+    }
+
+    void Update() {
+        if ( canPickup ) {
+            if ( Input.GetKeyDown(KeyCode.E) && currentTouchedItem != null ) {
+                canPickup = false;
+                Item _item = new Item(currentTouchedItem.item);
+                if (inventory.AddItem(_item, 1)) {
+                    Destroy(currentTouchedItem.gameObject);
+                }
+            }
+        }
+        
 
     }
+
     public void OnBeforeSlotUpdate(InventorySlot _slot)
     {
         if (_slot.ItemObject == null)
@@ -128,31 +145,23 @@ public class Player : MonoBehaviour
                 break;
         }
     }
-    void OnTriggerEnter2D(Collider2D other) 
-    {
-        var groundItem = other.GetComponent<GroundItem>();
-        if (groundItem)
-        {
-            Item _item = new Item(groundItem.item);
-            if (inventory.AddItem(_item, 1)) 
-            {
-                Destroy(other.gameObject);
-            }
+    
+    void OnTriggerEnter2D(Collider2D other) {
+        GroundItem groundItem = other.GetComponent<GroundItem>();
+        if (groundItem) {
+            canPickup = true;
+            currentTouchedItem = groundItem;
         }
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            inventory.Save();
-            equipment.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            inventory.Load();
-            equipment.Load();
+    void OnTriggerExit2D(Collider2D other) {
+        GroundItem groundItem = other.GetComponent<GroundItem>();
+        if (groundItem) {
+            canPickup = false;
+            currentTouchedItem = null;
         }
     }
+
+
     public void AttributeModified(Attribute attribute)
     {
         Debug.Log(string.Concat(attribute.type, " was updated! Value is now ", attribute.value.ModifiedValue));
