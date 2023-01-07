@@ -19,5 +19,6 @@ MonoBehaviour:
   data:
     Name: 
     Id: 0
-    buffs: []
-    skills: []
+    _STR: 1
+    _DEX: 2
+    _INT: 3

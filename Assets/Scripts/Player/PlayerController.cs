@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour {
     
     public ParticleSystem dust;
-    bool dustCreated = false;
-
 
     private Camera mainCamera;
     Rigidbody2D rb;    
@@ -36,10 +34,13 @@ public class PlayerController : MonoBehaviour {
     //roll
     public float rollSpeed;
     Vector2 lastMoveDirection;
+    public bool canRoll = true;
+
+    public FloatReference rollTimer;
+    public FloatReference rollCooldown; 
 
     void Awake() {
         state = State.Normal;
-        dustCreated = false;
         mainCamera = Camera.main;
     }
 
@@ -57,7 +58,10 @@ public class PlayerController : MonoBehaviour {
     private void Update() {
         switch (state) {
             case State.Normal:
-                if ( Input.GetKeyDown(KeyCode.Space) ) {
+                if ( Input.GetKeyDown(KeyCode.Space) && canRoll) {
+                    canRoll = false;
+                    rollTimer.setValue(0f);
+                    
                     createDust();
                     rollDirection = lastMoveDirection;
                     state = State.Rolling;
@@ -81,6 +85,15 @@ public class PlayerController : MonoBehaviour {
                 }
                 break;
         }
+
+        if ( canRoll == false ) {
+            rollTimer.setValue( rollTimer.value + Time.deltaTime );
+            if ( rollTimer.value > rollCooldown.value ) {
+                Debug.Log("resetting roll timer");
+                rollTimer.setValue(2f);
+                canRoll = true;
+            }
+        }
     }
 
     private void FixedUpdate() {
@@ -92,7 +105,6 @@ public class PlayerController : MonoBehaviour {
                 break;
 
             case State.Normal:
-                dustCreated = false;
                 if ( movementInput != Vector2.zero ) {
                     lastMoveDirection = movementInput;
                     bool moved = tryMove(movementInput);
@@ -134,7 +146,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     void createDust() {
-        dustCreated = true;
         dust.Play();
     }
 }

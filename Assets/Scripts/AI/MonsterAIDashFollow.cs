@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterAIDashFollow : MonoBehaviour {
     
-    private GameObject player;
+    private Player player; 
 
     Rigidbody2D rb;
 
@@ -13,7 +13,7 @@ public class MonsterAIDashFollow : MonoBehaviour {
     Vector3 playerPosition;
 
     void Awake() {
-        player = GameObject.Find("Player");
+        player = GameManager.instance.player;
         rb = GetComponent<Rigidbody2D>();
         shouldMove = false;
 
@@ -22,6 +22,9 @@ public class MonsterAIDashFollow : MonoBehaviour {
     }
 
     void UpdateInfo() {
+        if ( player == null ) {
+            player = GameManager.instance.player;
+        }
         playerPosition = player.transform.position;
         shouldMove = true;
     }

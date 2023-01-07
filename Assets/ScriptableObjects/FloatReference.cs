@@ -22,4 +22,12 @@ public class FloatReference : ScriptableObject {
             variable.value -= amount;
         }
     }
+
+    public void setValue(float val) {
+        if ( useConstant ) {
+            constantValue = val;
+        } else {
+            variable.value = val;
+        }
+    }
 }

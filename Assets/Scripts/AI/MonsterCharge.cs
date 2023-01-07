@@ -15,7 +15,7 @@ public class MonsterCharge : MonoBehaviour {
     SpriteRenderer spriteRenderer;
 
     void Start() {
-        target = GameObject.Find("Player").transform; 
+        target = GameManager.instance.player.transform; 
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("charge", 0f, 5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,7 +23,7 @@ public class MonsterCharge : MonoBehaviour {
     }
 
     void charge() {
-        target = GameObject.Find("Player").transform; 
+        target = GameManager.instance.player.transform; 
         StartCoroutine(chargeAt(target));
     }
 

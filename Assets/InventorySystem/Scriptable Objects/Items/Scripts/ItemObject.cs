@@ -45,24 +45,27 @@ public class Item
 {
     public string Name;
     public int Id = -1;
-    public ItemBuff[] buffs;
 
-    public Item()
-    {
+    public int _STR;
+    public int _DEX;
+    public int _INT;
+
+    public ItemStats stats;
+
+    public Item() {
         Name = "";
         Id = -1;
+        stats = new ItemStats();
     }
-    public Item(ItemObject item)
-    {
+
+    public Item(ItemObject item) {
         Name = item.name;
         Id = item.data.Id;
-        buffs = new ItemBuff[item.data.buffs.Length];
-        //registering buffs to the obj
-        for (int i = 0; i < buffs.Length; i++) {
-            buffs[i] = new ItemBuff(item.data.buffs[i].min, item.data.buffs[i].max) {
-                attribute = item.data.buffs[i].attribute
-            };
-        }
+
+        stats = new ItemStats();
+        stats.DEX = item.data._DEX;
+        stats.STR = item.data._STR;
+        stats.INT = item.data._INT;
     }
 }
 

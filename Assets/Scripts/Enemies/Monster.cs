@@ -11,6 +11,7 @@ public class Monster : MonoBehaviour {
     public float health = 0;
 
     public Projectile projectile;
+    public float fireCooldown { get; set;}
 
     [SerializeField] private GameObject shootingPoint;
     private SpriteRenderer spriteRenderer;
@@ -85,7 +86,9 @@ public class Monster : MonoBehaviour {
             }
             yield return null;
         }
-        Destroy(damageTextObj.gameObject);
+        if ( damageTextObj ) {
+            Destroy(damageTextObj.gameObject);
+        }
     }
 
     public virtual IEnumerator flash() {
@@ -107,16 +110,15 @@ public class Monster : MonoBehaviour {
     public virtual void fireAt() {
         if ( projectile == null || readyForDestroy) return;
         
-        GameObject p = GameObject.Find( "Player" );
-        Vector3 targetPos = p.transform.position; // trash code to be changed later
+        Vector3 targetPos = GameManager.instance.player.transform.position; // trash code to be changed later
         Vector3 direction = targetPos - shootingPoint.transform.position;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; 
         Quaternion rota = Quaternion.AngleAxis(angle, Vector3.forward); 
 
-        if ( p != null ) {
+        if ( GameManager.instance.player != null ) {
             Projectile go = Instantiate( projectile, shootingPoint.transform.position, rota );
-            Destroy(go.gameObject, 1);
+            Destroy(go.gameObject, 2);
         }
     }
 

@@ -20,13 +20,11 @@ public class ItemToolTip : MonoBehaviour {
     public TextMeshProUGUI _attribute_1;
     public TextMeshProUGUI _attribute_2;
     public TextMeshProUGUI _attribute_3;
-    public TextMeshProUGUI _attribute_4;
 
     List<TextMeshProUGUI> attrValueList = new List<TextMeshProUGUI>();
     public TextMeshProUGUI _attribute_value_1;
     public TextMeshProUGUI _attribute_value_2;
     public TextMeshProUGUI _attribute_value_3;
-    public TextMeshProUGUI _attribute_value_4;
 
     public TextMeshProUGUI _description;
 
@@ -38,9 +36,10 @@ public class ItemToolTip : MonoBehaviour {
     void Start() {
 
         //add to list so we can dinamically set them
-        attrList.Add(_attribute_1); attrList.Add(_attribute_2); attrList.Add(_attribute_3); attrList.Add(_attribute_4);
-        attrValueList.Add(_attribute_value_1); attrValueList.Add(_attribute_value_2); 
-        attrValueList.Add(_attribute_value_3); attrValueList.Add(_attribute_value_4);
+        attrList.Add(_attribute_1); attrList.Add(_attribute_2); attrList.Add(_attribute_3);
+        attrValueList.Add(_attribute_value_1); 
+        attrValueList.Add(_attribute_value_2); 
+        attrValueList.Add(_attribute_value_3);
     }
 
     public void setPosition(Vector3 position) {
@@ -51,19 +50,15 @@ public class ItemToolTip : MonoBehaviour {
 
         _itemName.text = item.data.Name;
         _itemType.text = item.type.ToString();
-        
-        for (int i = 0; i < item.data.buffs.Length; i++) {
-            int attribute_number = i;
-            //atr name
-            attrList[attribute_number].text = item.data.buffs[i].attribute.ToString();
-            //atr value
-            if ( item.data.buffs[i].value == 0 ) {
-                attrValueList[attribute_number].text = "-";
-            } else {
-                attrValueList[attribute_number].text = item.data.buffs[i].value.ToString();
-            }
-        }
 
+        _attribute_1.text = "STR";
+        _attribute_2.text = "DEX";
+        _attribute_3.text = "INT";
+
+        _attribute_value_1.text = item.data._STR.ToString();
+        _attribute_value_2.text = item.data._DEX.ToString();
+        _attribute_value_3.text = item.data._INT.ToString();
+        
         _description.text = item.description;
         _itemSprite.sprite = item.uiDisplay;
 

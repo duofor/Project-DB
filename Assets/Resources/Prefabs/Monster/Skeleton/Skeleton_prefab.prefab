@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2462895671621105449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0863, y: -0.0294, z: 0}
+  m_LocalPosition: {x: 0.0859, y: -0.0311, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137,12 +137,12 @@ Transform:
   m_GameObject: {fileID: 5706177867691538427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.109, y: -0.212, z: 0}
-  m_LocalScale: {x: -0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2462895671621105494}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5706177867691538425
 SpriteRenderer:
@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45dbd39134eb34f44b975548650aeb37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_ref: {fileID: 11400000, guid: 34b9b337106f04e449ca01b9addf748a, type: 2}
   speed: 20
   movementFilter:
     useTriggers: 0
@@ -310,7 +311,7 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 1024
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
@@ -355,7 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456e38c7b09cc2249b49f05761ee7514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 34b9b337106f04e449ca01b9addf748a, type: 2}
   readyForDestroy: 0
   health: 10
-  projectile: {fileID: 3797116613031728912, guid: 04571f491a5fe7e45a91fafc6554771c, type: 3}
+  projectile: {fileID: -3569357975559348681, guid: 04571f491a5fe7e45a91fafc6554771c, type: 3}
   shootingPoint: {fileID: 2462895671621105449}

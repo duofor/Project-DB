@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8220893492303282372}
   - component: {fileID: 8220893492303282371}
   - component: {fileID: 8220893492303282370}
-  - component: {fileID: 8220893492303282373}
+  - component: {fileID: 6435207930630411507}
   m_Layer: 8
   m_Name: Chest
   m_TagString: Untagged
@@ -27,12 +27,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8220893492303282369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.849, y: 0.518, z: -0.2534074}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8220893492303282371
 SpriteRenderer:
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4101294306171259788, guid: 6139b099b5cbcfe4c836ec5f4c1d1e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43105173, y: 0.3381735}
   m_EdgeRadius: 0
---- !u!114 &8220893492303282373
+--- !u!114 &6435207930630411507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,9 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8220893492303282369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc019829adca21459c1bfa62a3af97d, type: 3}
+  m_Script: {fileID: 11500000, guid: 77b7bc714109f474da600a345c5c3fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsInChest:
-  - {fileID: 0}
-  - {fileID: 0}
+  itemsInChest: []
+  canOpen: 0
+  isAlreadyOpened: 0

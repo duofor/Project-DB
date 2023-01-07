@@ -8,10 +8,11 @@ public class Projectile : MonoBehaviour {
     Util util = new Util();
 
     public FloatReference playerHp;
-    private Vector3 targetPos;
+    public Vector3 targetPos;
 
     public float damage;
-    float projectileSpeed = 1.5f;
+    public float projectileSpeed = 50f;
+    public bool forceWasAdded = false;
     
 
     SpriteRenderer spriteRenderer;
@@ -31,16 +32,16 @@ public class Projectile : MonoBehaviour {
         damage = 1;
     
         // to be moved in childs
-        targetPos = GameObject.Find("Player").transform.position; // trash code to be changed later
+        targetPos = GameManager.instance.player.transform.position; // trash code to be changed later
     }
 
     void FixedUpdate() {
-        if ( targetPos != Vector3.zero ) {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                targetPos,
-                Time.fixedDeltaTime * projectileSpeed
-            );
+        if ( targetPos != Vector3.zero && forceWasAdded == false) {
+            forceWasAdded = true;
+            Vector2 direction = (targetPos - transform.position).normalized; 
+            Vector2 force = direction * projectileSpeed;
+
+            rb.AddForce( force );
         }
     }
 

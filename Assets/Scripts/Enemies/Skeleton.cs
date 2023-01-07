@@ -6,10 +6,12 @@ using TMPro;
 public class Skeleton : Monster  {
     Util util = new Util();
 
+
     void Start() {
+        fireCooldown = Random.Range(0.5f, 1.5f);
         health = 5;
+        
         //start invoking projectiles.
-        float fireTime = Random.Range(1.5f, 3.5f);
-        InvokeRepeating("fireAt", 0f, fireTime);
+        InvokeRepeating("fireAt", 0f, fireCooldown);
     }
 }

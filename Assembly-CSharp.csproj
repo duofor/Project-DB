@@ -51,6 +51,7 @@
      <Compile Include="Assets\InventorySystem\Scriptable Objects\Items\Scripts\ItemDatabaseObject.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+     <Compile Include="Assets\Scripts\Projectile\Orb.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\Scripts\Player\Items\ScytheBlue\ScytheSpinThrow.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
@@ -58,13 +59,16 @@
      <Compile Include="Assets\Scripts\Projectile\Projectile.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+     <Compile Include="Assets\Scripts\Interactables\RewardPicker.cs" />
      <Compile Include="Assets\Scripts\Projectile\BlueArrow.cs" />
      <Compile Include="Assets\InventorySystem\Standard Assets\Characters\ThirdPersonCharacter\Scripts\AICharacterControl.cs" />
      <Compile Include="Assets\Scripts\PlayerGUI\SkillInterface.cs" />
+     <Compile Include="Assets\InventorySystem\Scriptable Objects\Items\Scripts\ItemStats.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSkills\PlayerSkillInterface.cs" />
+     <Compile Include="Assets\Scripts\PlayerGUI\PlayerHP.cs" />
      <Compile Include="Assets\Scripts\Player\Stats.cs" />
      <Compile Include="Assets\Scripts\AI\MonsterCharge.cs" />
      <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
@@ -93,6 +97,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
      <Compile Include="Assets\InventorySystem\IModifiers.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+     <Compile Include="Assets\Scripts\Player\StatUpdater.cs" />
      <Compile Include="Assets\Scripts\Util\Util.cs" />
      <Compile Include="Assets\Scripts\PlayerGUI\ImageFillSetter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -106,6 +111,8 @@
      <Compile Include="Assets\Scripts\Player\Items\FireStaff\MeteorStorm.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\ScriptableObjects\PlayerReference.cs" />
+     <Compile Include="Assets\ScriptableObjects\IntVariable.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\NestSpawner.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />

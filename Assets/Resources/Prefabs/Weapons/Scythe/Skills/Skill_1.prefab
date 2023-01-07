@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8053862317651906604}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   skillIcon: {fileID: 21300000, guid: 9398e5d24a857b24ea40420e10fd876b, type: 2}
   skillLevel: 1
   skillDamage: 1
-  skillManaCost: 1
   numberOfTargets: 1
+  player_ref: {fileID: 11400000, guid: 34b9b337106f04e449ca01b9addf748a, type: 2}
   skillDuration: 2
-  skillSpeed: 2
+  skillSpeed: 100

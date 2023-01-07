@@ -30,9 +30,9 @@ public class PlayerSkillInterface : MonoBehaviour {
                 continue;
             }
 
-            Sprite skillSprite = skill.skillIcon;
 
-            playerSkillSlots[index].setSkillSprite(skillSprite);
+            // Sprite skillSprite = skill.skillIcon;
+            // playerSkillSlots[index].setSkillSprite(skillSprite);
             // playerSkillSlots[index].setOrderInLayer(3);
             playerSkillSlots[index].setSkill(skill);
             index += 1;
@@ -44,7 +44,7 @@ public class PlayerSkillInterface : MonoBehaviour {
 
         foreach ( PlayerSkillSlot pss in playerSkillSlots ) {
             pss.clearSkill();
-            pss.clearSkillSprite();
+            // pss.clearSkillSprite();
         }
     }
 }

@@ -27,20 +27,6 @@ MonoBehaviour:
   data:
     Name: Arma mamei tale
     Id: 15
-    buffs:
-    - attribute: 3
-      value: 1
-      min: 1
-      max: 5
-    - attribute: 0
-      value: 2
-      min: 1
-      max: 5
-    - attribute: 2
-      value: 1
-      min: 1
-      max: 5
-    - attribute: 1
-      value: 3
-      min: 1
-      max: 5
+    _STR: 1
+    _DEX: 23
+    _INT: 3

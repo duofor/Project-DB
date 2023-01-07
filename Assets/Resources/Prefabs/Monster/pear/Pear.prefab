@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a9823477f048846a59be6d4df28f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_ref: {fileID: 11400000, guid: 34b9b337106f04e449ca01b9addf748a, type: 2}
   readyForDestroy: 0
   health: 0
   projectile: {fileID: 0}
@@ -210,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e2fcdceeb2ae1649918cf989e531595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_ref: {fileID: 11400000, guid: 34b9b337106f04e449ca01b9addf748a, type: 2}
   chargeSpeed: 200
 --- !u!1 &5562520253840529709
 GameObject:

@@ -1,35 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System.Runtime.Serialization;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
+
+    //scriptable objects
     public InventoryObject inventory;
     public InventoryObject equipment;
-    public Attribute[] attributes;
     
     //my shit
+    public Stats stats = new Stats();
     public PlayerSkillInterface skillInterface;
-    private Stats stats;
+    
+    public StatUpdater statUpdater;
+
     public GameObject weaponPoint;
     private GameObject myCurrentWeapon;
 
     bool canPickup = false;
     GroundItem currentTouchedItem;
 
-    void Awake() {
-        stats = GetComponent<Stats>();
+    void OnDestroy() {
+        for (int i = 0; i < equipment.GetSlots.Length; i++) {
+            equipment.GetSlots[i].OnBeforeUpdate -= OnBeforeSlotUpdate;
+            equipment.GetSlots[i].OnAfterUpdate -= OnAfterSlotUpdate;
+        }
     }
 
     private void Start() {
-        for (int i = 0; i < attributes.Length; i++) {
-            attributes[i].SetParent(this);
-        }
         for (int i = 0; i < equipment.GetSlots.Length; i++) {
             equipment.GetSlots[i].OnBeforeUpdate += OnBeforeSlotUpdate;
             equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
         }
+
         canPickup = false;
+        statUpdater.stats_ref = stats;
     }
 
     void Update() {
@@ -42,8 +50,6 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        
-
     }
 
     public void OnBeforeSlotUpdate(InventorySlot _slot)
@@ -58,11 +64,11 @@ public class Player : MonoBehaviour
                 print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
 
                 //remove the buffs
-                for (int i = 0; i < _slot.item.buffs.Length; i++) {
-                    for (int j = 0; j < attributes.Length; j++) {
-                        if (attributes[j].type == _slot.item.buffs[i].attribute)
-                            attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
-                    }
+                if ( _slot.item.stats != null ) {
+                    Debug.Log("removing stats ");
+                    stats.STR -= _slot.item.stats.STR;
+                    stats.DEX -= _slot.item.stats.DEX;
+                    stats.INT -= _slot.item.stats.INT;
                 }
 
                 //remove the skills
@@ -104,11 +110,12 @@ public class Player : MonoBehaviour
                 print(string.Concat("Placed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
                 
                 //add the buffs
-                for (int i = 0; i < _slot.item.buffs.Length; i++) {
-                    for (int j = 0; j < attributes.Length; j++) {
-                        if (attributes[j].type == _slot.item.buffs[i].attribute)
-                            attributes[j].value.AddModifier(_slot.item.buffs[i]);
-                    }
+                if ( _slot.item.stats != null ) {
+                    stats.STR += _slot.item.stats.STR;
+                    stats.DEX += _slot.item.stats.DEX;
+                    stats.INT += _slot.item.stats.INT;
+                    Debug.Log("adding " + _slot.item.stats.STR + " to stats STR: " + stats.STR);
+                    Debug.Log("adding " + _slot.item.stats.DEX + " to stats STR: " + stats.DEX);
                 }
 
                 //add the skills
@@ -120,7 +127,6 @@ public class Player : MonoBehaviour
                         List<Skill> sk = new List<Skill>();
                         sk.Add(skill);
                         skillInterface.addSkills(sk);
-
                         break;
                     }
                 }
@@ -162,8 +168,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void AttributeModified(Attribute attribute)
-    {
+    public void AttributeModified(Attribute attribute) {
         Debug.Log(string.Concat(attribute.type, " was updated! Value is now ", attribute.value.ModifiedValue));
     }
     private void OnApplicationQuit()
@@ -180,16 +185,11 @@ public class Player : MonoBehaviour
         inventory.Load();
         equipment.Load();
     }
-
 }
 
 
-
-
-
 [System.Serializable]
-public class Attribute
-{
+public class Attribute {
     [System.NonSerialized]
     public Player parent;
     public Attributes type;

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour {
 
     public Player player;
+    public GameObject playerStartingLocation;
+
     BoxCollider2D boxCollider2D;
     public Animator transition;
     public float transitionTime = 1f;
@@ -15,10 +17,10 @@ public class LevelLoader : MonoBehaviour {
     }
 
     void Start() {
-        if ( SceneManager.GetActiveScene().buildIndex == 0 ){
-            gameObject.SetActive(false);
-            return; //dont load on first scene;
-        }      
+        // if ( SceneManager.GetActiveScene().buildIndex == 0 ){
+        //     gameObject.SetActive(false);
+        //     return; //dont load on first scene;
+        // }      
     }
 
     public void loadNextLevel() {
@@ -47,8 +49,11 @@ public class LevelLoader : MonoBehaviour {
 
         yield return new WaitForSeconds(0.1f);
         player.loadPlayerData();
+        player.transform.position += new Vector3(0.001f, 0.0001f, 0 ); //sometimes nothing updates unless we make a move in a new scene
         gameObject.SetActive(false);
     }
 
-
+    public void setPlayer(Player p_ref) {
+        player = p_ref;
+    }
 }

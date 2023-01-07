@@ -19,19 +19,6 @@ MonoBehaviour:
   data:
     Name: 
     Id: 10
-    buffs:
-    - attribute: 0
-      value: 0
-      min: 1
-      max: 100
-    - attribute: 3
-      value: 0
-      min: 1
-      max: 46
-    - attribute: 1
-      value: 0
-      min: 1
-      max: 12
-    skills:
-    - {fileID: 5887728129617314586, guid: 3b398ad42a5f1e84fae55f43a7f7c366, type: 3}
-    - {fileID: 1427928246396200975, guid: 5f35b3797cf679b44bae25a484d11923, type: 3}
+    _STR: 23
+    _DEX: 23
+    _INT: 12

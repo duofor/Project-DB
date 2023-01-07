@@ -6,7 +6,6 @@ using Pathfinding;
 public class MonsterAIFollow : MonoBehaviour {
     Util util = new Util();
 
-
     private Transform target;
 
     public float speed = 50f;
@@ -36,7 +35,7 @@ public class MonsterAIFollow : MonoBehaviour {
         localScale_Y = transform.localScale.y;
 
         seeker = GetComponent<Seeker>();
-        target = GameObject.Find("Player").transform; 
+        target = GameManager.instance.player.transform; 
 
         rb = GetComponent<Rigidbody2D>();
         rb.drag = 1.5f; //linear drag so it stops
@@ -44,8 +43,11 @@ public class MonsterAIFollow : MonoBehaviour {
     }
 
     void UpdatePath() {
+        target = GameManager.instance.player.transform; 
+
         if ( shouldPath ) {
             if ( seeker.IsDone() ) { //if its not calculating a path now
+                Debug.Log("calc");
                 seeker.StartPath( rb.position, target.position, OnPathComplete );
             }
         }
@@ -88,10 +90,9 @@ public class MonsterAIFollow : MonoBehaviour {
             countTime = 0f;
 
             if (rb.velocity.x >= 0.01f && force.x > 0f) {
+                transform.localScale = new Vector3(  localScale_X, localScale_Y, 1f);
+            } else if (rb.velocity.x <= -0.01f && force.x < 0f) {
                 transform.localScale = new Vector3( - localScale_X, localScale_Y, 1f);
-            }
-            else if (rb.velocity.x <= -0.01 && force.x < 0f) {
-                transform.localScale = new Vector3(localScale_X, localScale_Y, 1f);
             }
         }
 

@@ -5000,6 +5000,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9beee2973f54e0c45915e43add072e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_ref: {fileID: 11400000, guid: 34b9b337106f04e449ca01b9addf748a, type: 2}
   playerHp: {fileID: 11400000, guid: 940b3ac34f4c1e742b832fc7deb848b0, type: 2}
+  targetPos: {x: 0, y: 0, z: 0}
   damage: 2
+  projectileSpeed: 100
+  forceWasAdded: 0
   dust: {fileID: 1731440818}

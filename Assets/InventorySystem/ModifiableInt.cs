@@ -45,9 +45,9 @@ public class ModifiableInt
             ValueModified.Invoke();
     }
 
-    public void AddModifier(IModifier _modifier)
-    {
+    public void AddModifier(IModifier _modifier) {
         modifiers.Add(_modifier);
+        Debug.Log("added "  + _modifier);
         UpdateModifiedValue();
     }
     public void RemoveModifier(IModifier _modifier)

@@ -10,7 +10,7 @@ public class SkillInterface : MonoBehaviour {
     public void createSlots() {
         for (int i = 0; i < skills.Length; i++) {
             PlayerSkillSlot slot = skills[i];
-            slot.setSkillSprite( slot.GetComponent<SpriteRenderer>().sprite );
+            // slot.setSkillSprite( slot.GetComponent<SpriteRenderer>().sprite );
 
             // AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
             // AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });

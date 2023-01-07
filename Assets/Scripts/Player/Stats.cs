@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Stats : MonoBehaviour {
+public class Stats {
     
-    [SerializeField] private FloatReference playerHealth; 
-    [SerializeField] private FloatReference playerMaxHealth; 
+    public int STR = 0; 
+    public int DEX = 0; 
+    public int INT = 0; 
 }

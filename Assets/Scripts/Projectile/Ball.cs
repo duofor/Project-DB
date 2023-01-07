@@ -14,4 +14,14 @@ public class Ball : Projectile {
             dust.Play();
         }
     }
+
+    void FixedUpdate() {
+        if ( targetPos != Vector3.zero ) {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPos,
+                Time.fixedDeltaTime * projectileSpeed
+            );
+        }
+    }
 }
