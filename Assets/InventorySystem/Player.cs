@@ -52,8 +52,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void OnBeforeSlotUpdate(InventorySlot _slot)
-    {
+    public void OnBeforeSlotUpdate(InventorySlot _slot) {
         if (_slot.ItemObject == null)
             return;
         switch (_slot.parent.inventory.type)

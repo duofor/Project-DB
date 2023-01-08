@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour {
     public float projectileSpeed = 50f;
     public bool forceWasAdded = false;
     
+    public bool isControlledFromChild = false;
 
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
@@ -36,6 +37,8 @@ public class Projectile : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        if (isControlledFromChild) return;
+
         if ( targetPos != Vector3.zero && forceWasAdded == false) {
             forceWasAdded = true;
             Vector2 direction = (targetPos - transform.position).normalized; 
@@ -46,6 +49,9 @@ public class Projectile : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D col) {
+        if ( col.GetComponent<Monster>() || col.GetComponent<Projectile>() ) return;
+        
+        Debug.Log(col.transform.name);
         Destroy(gameObject);
 
         Player hit = col.transform.GetComponent<Player>();

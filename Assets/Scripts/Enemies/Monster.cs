@@ -13,7 +13,7 @@ public class Monster : MonoBehaviour {
     public Projectile projectile;
     public float fireCooldown { get; set;}
 
-    [SerializeField] private GameObject shootingPoint;
+    public GameObject shootingPoint;
     private SpriteRenderer spriteRenderer;
     Color initialColor;
 
@@ -38,7 +38,7 @@ public class Monster : MonoBehaviour {
         InvokeRepeating("fireAt", 0f, 0.5f);
     }
     
-    void Update() {
+    public void Update() {
         if (readyForDestroy) return;
 
         if ( health <= 0 ) {
