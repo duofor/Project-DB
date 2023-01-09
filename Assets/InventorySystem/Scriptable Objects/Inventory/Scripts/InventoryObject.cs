@@ -87,17 +87,15 @@ public class InventoryObject : ScriptableObject {
     
 
     [ContextMenu("Save")]
-    public void Save()
-    {
+    public void Save() {
         IFormatter formatter = new BinaryFormatter();
         Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Create, FileAccess.Write);
         formatter.Serialize(stream, Container);
         stream.Close();
     }
     [ContextMenu("Load")]
-    public void Load()
-    {
-        if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+    public void Load() {
+        if (File.Exists(string.Concat(Application.persistentDataPath, savePath))) 
         {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);

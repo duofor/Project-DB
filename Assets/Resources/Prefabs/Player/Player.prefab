@@ -5171,7 +5171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: ba391aef18194db419840aa8245becc2, type: 2}
   equipment: {fileID: 11400000, guid: 43835e75255697f44b8c11400e3fd98a, type: 2}
-  stats: {fileID: 11400000, guid: 8b189f4ccb545ae4d8273166bf7fe962, type: 2}
+  coins: {fileID: 11400000, guid: 8e1af9cd5edd0cc40b6abed224d1468d, type: 2}
   skillInterface: {fileID: 7911341270867448165}
   statUpdater: {fileID: 0}
   weaponPoint: {fileID: 7410692118816168650}

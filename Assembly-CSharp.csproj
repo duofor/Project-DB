@@ -46,6 +46,7 @@
      <Compile Include="Assets\InventorySystem\DynamicInterface.cs" />
      <Compile Include="Assets\Scripts\Player\Items\MagmaStaff\NapalmBlast.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+     <Compile Include="Assets\Scripts\Interactables\Collectable.cs" />
      <Compile Include="Assets\Scripts\Projectile\WhiteArrow.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\InventorySystem\Scriptable Objects\Items\Scripts\ItemDatabaseObject.cs" />
@@ -71,6 +72,7 @@
      <Compile Include="Assets\Scripts\PlayerGUI\PlayerHP.cs" />
      <Compile Include="Assets\Scripts\Player\Stats.cs" />
      <Compile Include="Assets\Scripts\AI\MonsterCharge.cs" />
+     <Compile Include="Assets\Scripts\Player\Coin.cs" />
      <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\InventorySystem\ModifiableInt.cs" />
@@ -93,6 +95,7 @@
      <Compile Include="Assets\Scripts\Enemies\Graveyard_Boss.cs" />
      <Compile Include="Assets\Scripts\Interactables\Chest.cs" />
      <Compile Include="Assets\Scripts\DamageManager.cs" />
+     <Compile Include="Assets\Scripts\Generic GUI\StackCounter.cs" />
      <Compile Include="Assets\Scripts\Enemies\Skeleton.cs" />
      <Compile Include="Assets\Scripts\Player\Items\MagmaStaff\FireHand.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />

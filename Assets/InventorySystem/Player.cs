@@ -10,7 +10,9 @@ public class Player : MonoBehaviour {
     //scriptable objects
     public InventoryObject inventory;
     public InventoryObject equipment;
-    
+    public CollectableObject coins;
+
+
     //my shit
     public Stats stats = new Stats();
     public PlayerSkillInterface skillInterface;
@@ -179,10 +181,12 @@ public class Player : MonoBehaviour {
     public void savePlayerData() {
         inventory.Save();
         equipment.Save();
+        coins.Save();
     }
     public void loadPlayerData() {
         inventory.Load();
         equipment.Load();
+        coins.Load();
     }
 }
 

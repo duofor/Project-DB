@@ -455,10 +455,10 @@ public class Graveyard_Boss : Monster  {
         changeAnimationState(ANIM_IDLE);
         Time.timeScale = 1;
 
-        spawnSkeletons();
         Camera.main.transform.position = initialPos;
         Camera.main.orthographicSize = initialSize;
 
+        spawnSkeletons();
         isTransforming = false;
 
     }
