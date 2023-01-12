@@ -13,7 +13,7 @@ public class Collectable : MonoBehaviour {
         mainCamera = Camera.main;
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
+    public virtual void OnTriggerEnter2D(Collider2D other) {
         Debug.Log(other.transform.name);
         Player player = other.GetComponent<Player>();
         if ( player ) {
@@ -57,7 +57,7 @@ public class Collectable : MonoBehaviour {
             yield return null;
         }
 
-        Destroy(textObj.gameObject);
+        DestroyImmediate(textObj.gameObject);
         Destroy(gameObject);
     }
 }

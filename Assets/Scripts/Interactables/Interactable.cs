@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour {
-
-    public List<GroundItem> itemsInChest;
+    //this class is pretty much a highlightable not an interactable class.
 
     SpriteRenderer spriteRenderer;
     private Material outlineMaterial;
@@ -21,8 +20,7 @@ public class Interactable : MonoBehaviour {
         isAlreadyOpened = false;
     }
 
-
-    void OnTriggerExit2D(Collider2D other) {
+    public virtual void OnTriggerExit2D(Collider2D other) {
         Player p = other.GetComponent<Player>();
         if ( p == null || isAlreadyOpened) return;
 
@@ -30,7 +28,7 @@ public class Interactable : MonoBehaviour {
         canOpen = false;
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
+    public virtual void OnTriggerEnter2D(Collider2D other) {
         Player p = other.GetComponent<Player>();
         if ( p == null || isAlreadyOpened) return;
 

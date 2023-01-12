@@ -5,6 +5,7 @@ using UnityEngine;
 public class Chest : Interactable {
     
     private Player player;
+    public List<GroundItem> itemsInChest;
 
     void Start() {
         GameObject reward = RewardPicker.instance.getRandomRewardObj();

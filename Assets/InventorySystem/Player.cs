@@ -23,7 +23,8 @@ public class Player : MonoBehaviour {
     private GameObject myCurrentWeapon;
 
     bool canPickup = false;
-    GroundItem currentTouchedItem;
+    
+    public GroundItem currentTouchedItem; //this also gets set from a shop
 
     void OnDestroy() {
         for (int i = 0; i < equipment.GetSlots.Length; i++) {
@@ -155,7 +156,7 @@ public class Player : MonoBehaviour {
     
     void OnTriggerEnter2D(Collider2D other) {
         GroundItem groundItem = other.GetComponent<GroundItem>();
-        if (groundItem) {
+        if (groundItem && groundItem.canPickup == true) {
             canPickup = true;
             currentTouchedItem = groundItem;
         }

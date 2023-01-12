@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Coins
   m_EditorClassIdentifier: 
   savePath: /coin.save
-  value: 0
+  value: 54484
